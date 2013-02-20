@@ -14,14 +14,17 @@
 @implementation TaskHistory
 
 static NSMutableDictionary *TaskHistoryDict = nil;
+static NSInteger MaxHistoryLength = 21;
+static float HourPerDay = 60.0 * 60.0 * 24.0;
 
 + (NSMutableArray *)taskForToday {
     NSDate *today = [Utility dateWithOutTime:[NSDate date]];
-//    NSDate *today = [Utility dateWithOutTime:[NSDate dateWithTimeIntervalSinceNow: -(60.0f*60.0f*24.0f)]];
+//    NSDate *today = [Utility dateWithOutTime:[NSDate dateWithTimeIntervalSinceNow: -(3 * HourPerDay)]];
     NSMutableArray *tasks = [TaskHistoryDict objectForKey:today];
     if (!tasks) {
         tasks = [TaskHistory generateDefaultTaskList];
         [TaskHistoryDict setValue:tasks forKey:today];
+        [TaskHistory saveTaskHistory];
     }
     return tasks;
 }
@@ -46,6 +49,7 @@ static NSMutableDictionary *TaskHistoryDict = nil;
         TaskHistoryDict = [NSMutableDictionary dictionary];
     }
     NSLog(@"Init task history: %@", TaskHistoryDict);
+    [TaskHistory clearPreviousTaskHistory];
 }
 
 + (BOOL)saveTaskHistory {
@@ -67,6 +71,23 @@ static NSMutableDictionary *TaskHistoryDict = nil;
         NSLog(@"Unable to delete file: %@", [error localizedDescription]);
     } else {
         NSLog(@"Task history cleared.");
+    }
+}
+
++ (void)clearPreviousTaskHistory {
+    if ([TaskHistoryDict count] > MaxHistoryLength) {
+        NSLog(@"Clearing previous task history...");
+        NSDate *dateToDelete = [Utility dateWithOutTime:[NSDate dateWithTimeIntervalSinceNow: -(MaxHistoryLength * HourPerDay)]];
+        NSMutableArray *deletedKeys = [NSMutableArray array];
+        for (NSDate *key in TaskHistoryDict) {
+            [deletedKeys addObject:key];
+        }
+        for (NSDate *key in deletedKeys) {
+            if ([dateToDelete compare:key] == NSOrderedDescending) {
+                [TaskHistoryDict removeObjectForKey:key];
+            }
+        }
+        [TaskHistory saveTaskHistory];
     }
 }
 

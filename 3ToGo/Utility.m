@@ -18,4 +18,13 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
++ (NSDate *)getWeekdayOfTheWeek:(NSInteger)theWeekday {
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *weekdayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:today];
+    NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
+    [componentsToSubtract setDay: - ([weekdayComponents weekday] - theWeekday)];
+    return [gregorian dateByAddingComponents:componentsToSubtract toDate:today options:0];
+}
+
 @end
