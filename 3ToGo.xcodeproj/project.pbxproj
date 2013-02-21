@@ -25,8 +25,11 @@
 		FD77052816D3572100FA4459 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052716D3572100FA4459 /* Task.m */; };
 		FD77052B16D40B7C00FA4459 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052A16D40B7C00FA4459 /* Constants.m */; };
 		FD77053016D42EC700FA4459 /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052F16D42EC700FA4459 /* EditTaskViewController.m */; };
-		FD77053616D486F500FA4459 /* TaskHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77053516D486F500FA4459 /* TaskHistory.m */; };
 		FD77053916D4A1F300FA4459 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77053816D4A1F300FA4459 /* Utility.m */; };
+		FD77053F16D5621800FA4459 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77053E16D5621800FA4459 /* SummaryViewController.m */; };
+		FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054216D57FC700FA4459 /* WeekSummary.m */; };
+		FD77054616D58E2E00FA4459 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054516D58E2D00FA4459 /* Mission.m */; };
+		FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054816D58FB100FA4459 /* MissionHistory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,10 +59,16 @@
 		FD77052A16D40B7C00FA4459 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		FD77052E16D42EC700FA4459 /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
 		FD77052F16D42EC700FA4459 /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
-		FD77053416D486F400FA4459 /* TaskHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskHistory.h; sourceTree = "<group>"; };
-		FD77053516D486F500FA4459 /* TaskHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskHistory.m; sourceTree = "<group>"; };
 		FD77053716D4A1F300FA4459 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		FD77053816D4A1F300FA4459 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		FD77053D16D5621800FA4459 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		FD77053E16D5621800FA4459 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		FD77054116D57FC700FA4459 /* WeekSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekSummary.h; sourceTree = "<group>"; };
+		FD77054216D57FC700FA4459 /* WeekSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekSummary.m; sourceTree = "<group>"; };
+		FD77054416D58E2D00FA4459 /* Mission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mission.h; sourceTree = "<group>"; };
+		FD77054516D58E2D00FA4459 /* Mission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mission.m; sourceTree = "<group>"; };
+		FD77054716D58FB100FA4459 /* MissionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionHistory.h; sourceTree = "<group>"; };
+		FD77054816D58FB100FA4459 /* MissionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionHistory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +120,7 @@
 				FD77050316D34A1400FA4459 /* TTGAppDelegate.h */,
 				FD77050416D34A1400FA4459 /* TTGAppDelegate.m */,
 				FD77053B16D4A82C00FA4459 /* Model */,
+				FD77054016D57FA500FA4459 /* Summary */,
 				FD77053A16D4A80800FA4459 /* ViewController */,
 				FD77053C16D4A83B00FA4459 /* Utility */,
 				FD7704FB16D34A1400FA4459 /* Supporting Files */,
@@ -150,6 +160,8 @@
 				FD77052416D3542B00FA4459 /* TaskListViewController.m */,
 				FD77052E16D42EC700FA4459 /* EditTaskViewController.h */,
 				FD77052F16D42EC700FA4459 /* EditTaskViewController.m */,
+				FD77053D16D5621800FA4459 /* SummaryViewController.h */,
+				FD77053E16D5621800FA4459 /* SummaryViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -159,8 +171,10 @@
 			children = (
 				FD77052616D3572100FA4459 /* Task.h */,
 				FD77052716D3572100FA4459 /* Task.m */,
-				FD77053416D486F400FA4459 /* TaskHistory.h */,
-				FD77053516D486F500FA4459 /* TaskHistory.m */,
+				FD77054416D58E2D00FA4459 /* Mission.h */,
+				FD77054516D58E2D00FA4459 /* Mission.m */,
+				FD77054716D58FB100FA4459 /* MissionHistory.h */,
+				FD77054816D58FB100FA4459 /* MissionHistory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -174,6 +188,15 @@
 				FD77053816D4A1F300FA4459 /* Utility.m */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		FD77054016D57FA500FA4459 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				FD77054116D57FC700FA4459 /* WeekSummary.h */,
+				FD77054216D57FC700FA4459 /* WeekSummary.m */,
+			);
+			name = Summary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +276,11 @@
 				FD77052816D3572100FA4459 /* Task.m in Sources */,
 				FD77052B16D40B7C00FA4459 /* Constants.m in Sources */,
 				FD77053016D42EC700FA4459 /* EditTaskViewController.m in Sources */,
-				FD77053616D486F500FA4459 /* TaskHistory.m in Sources */,
 				FD77053916D4A1F300FA4459 /* Utility.m in Sources */,
+				FD77053F16D5621800FA4459 /* SummaryViewController.m in Sources */,
+				FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */,
+				FD77054616D58E2E00FA4459 /* Mission.m in Sources */,
+				FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +403,7 @@
 				FD77052116D34A1500FA4459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

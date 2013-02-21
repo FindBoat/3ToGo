@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Mission;
 @interface TaskListViewController : UITableViewController
 
-@property (nonatomic) NSMutableArray *tasks;
+@property (nonatomic) Mission *missionToday;
 
 - (IBAction)saveEdit:(UIStoryboardSegue *)segue;
 - (IBAction)cancelEdit:(UIStoryboardSegue *)segue;

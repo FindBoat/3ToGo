@@ -12,5 +12,7 @@
 
 + (NSDate *)dateWithOutTime:(NSDate *)date;
 + (NSDate *)getWeekdayOfTheWeek:(NSInteger)theWeekday;
++ (NSArray *)getAllWeekdaysOfTheWeek;
++ (NSDateComponents *)getWeekday:(NSDate *)date;
 
 @end

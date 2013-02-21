@@ -10,7 +10,7 @@
 
 @implementation Constants
 
-static NSString *TaskHistoryPath = nil;
+static NSString *MissionHistoryPath = nil;
 
 + (NSString *)documentsPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -18,11 +18,11 @@ static NSString *TaskHistoryPath = nil;
 }
 
 
-+(NSString *)taskHistoryPath {
-    if (!TaskHistoryPath) {
-        TaskHistoryPath = [[Constants documentsPath] stringByAppendingPathComponent:@"task_history.plist"];
++(NSString *)missionHistoryPath {
+    if (!MissionHistoryPath) {
+        MissionHistoryPath = [[Constants documentsPath] stringByAppendingPathComponent:@"mission_history.plist"];
     }
-    return TaskHistoryPath;
+    return MissionHistoryPath;
 }
 
 @end

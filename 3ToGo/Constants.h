@@ -10,6 +10,6 @@
 
 @interface Constants : NSObject
 
-+(NSString *)taskHistoryPath;
++(NSString *)missionHistoryPath;
 
 @end

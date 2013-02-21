@@ -7,14 +7,15 @@
 //
 
 #import "TTGAppDelegate.h"
-#import "TaskHistory.h"
+#import "MissionHistory.h"
 
 @implementation TTGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [TaskHistory initTaskHistory];
+    [MissionHistory initMissionHistory];
+//    [MissionHistory initTestMissionHistory];
     return YES;
 }
 							

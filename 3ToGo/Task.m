@@ -43,4 +43,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [[NSString alloc] initWithFormat:@"<Task: %@>", self.title];
+}
+
 @end

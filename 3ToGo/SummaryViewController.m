@@ -1,23 +1,18 @@
 //
-//  TaskListViewController.m
+//  SummaryViewController.m
 //  3ToGo
 //
-//  Created by Hang Zhao on 2/18/13.
+//  Created by Hang Zhao on 2/20/13.
 //  Copyright (c) 2013 Hang Zhao. All rights reserved.
 //
 
-#import "TaskListViewController.h"
-#import "EditTaskViewController.h"
-#import "Task.h"
-#import "Mission.h"
-#import "Constants.h"
-#import "MissionHistory.h"
+#import "SummaryViewController.h"
 
-@interface TaskListViewController ()
+@interface SummaryViewController ()
 
 @end
 
-@implementation TaskListViewController
+@implementation SummaryViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,9 +32,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.missionToday = [MissionHistory missionForToday];
-    NSLog(@"load mission: %@", self.missionToday);
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,30 +44,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.missionToday.tasks count];
+    return 4;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"TaskCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TaskCell"];
-    }
-    
-    Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
-    [cell.textLabel setText:task.title];
-    [cell.detailTextLabel setText:[[NSString alloc] initWithFormat:@"%d%%", task.completion]];
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *CellIdentifier = @"Cell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    
+//    // Configure the cell...
+//    
+//    return cell;
+//}
 
 /*
 // Override to support conditional editing of the table view.
@@ -127,45 +112,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *sectionName;
-    switch (section) {
-        case 0:
-            sectionName = @"Today Task";
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"TaskDetail"]) {
-        EditTaskViewController *editController = [segue destinationViewController];
-        editController.editTask = [self.missionToday.tasks objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-    }
-}
-
-- (IBAction)saveEdit:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"SaveEdit"]) {
-        EditTaskViewController *editController = [segue sourceViewController];
-        if (editController.editTask) {
-            [self.missionToday.tasks replaceObjectAtIndex:[[self.tableView indexPathForSelectedRow] row] withObject:editController.editTask];
-            [[self tableView] reloadData];
-        }
-        [self dismissViewControllerAnimated:YES completion:NULL];
-        [MissionHistory saveMissionHistory];
-    }
-
-}
-
-- (IBAction)cancelEdit:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"CancelEdit"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
 }
 
 @end
