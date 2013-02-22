@@ -15,6 +15,7 @@
 
 - (id)initWithTasks:(NSMutableArray *)tasks;
 - (id)initWithTasks:(NSMutableArray *)tasks andDate:(NSDate *)date;
++ (NSInteger)numTasksPerMission;
 
 + (id)createTestMission:(NSDate *)date;
 

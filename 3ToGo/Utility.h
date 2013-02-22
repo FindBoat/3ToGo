@@ -11,8 +11,8 @@
 @interface Utility : NSObject
 
 + (NSDate *)dateWithOutTime:(NSDate *)date;
-+ (NSDate *)getWeekdayOfTheWeek:(NSInteger)theWeekday;
-+ (NSArray *)getAllWeekdaysOfTheWeek;
 + (NSDateComponents *)getWeekday:(NSDate *)date;
++ (NSString *)getWeekdayString:(NSDate *)date andShortForm:(BOOL)shortForm;
++ (NSString *)getDateString:(NSDate *)date;
 
 @end

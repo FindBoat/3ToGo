@@ -10,10 +10,10 @@
 
 @interface WeekSummary : NSObject
 
-+ (NSInteger)getWeekScore;
-+ (NSInteger)getNumAccomplishedTasks;
-+ (NSInteger)getNumTasksThisWeek;
-+ (NSDate *)getBestPerformDateThisWeek;
-+ (NSDate *)getWorstPerformDateThisWeek;
++ (NSInteger)getWeekScore:(NSArray *)missions;
++ (NSInteger)getNumAccomplishedTasks:(NSArray *)missions;
++ (NSInteger)getNumTasksThisWeek:(NSArray *)missions;
++ (NSDate *)getBestPerformDateThisWeek:(NSArray *)missions;
++ (NSDate *)getWorstPerformDateThisWeek:(NSArray *)missions;
 
 @end

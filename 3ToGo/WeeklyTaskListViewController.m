@@ -1,21 +1,24 @@
 //
-//  SummaryViewController.m
+//  WeeklyTaskListViewController.m
 //  3ToGo
 //
-//  Created by Hang Zhao on 2/20/13.
+//  Created by Hang Zhao on 2/21/13.
 //  Copyright (c) 2013 Hang Zhao. All rights reserved.
 //
 
-#import "SummaryViewController.h"
-#import "WeekSummary.h"
+#import "WeeklyTaskListViewController.h"
 #import "MissionHistory.h"
+#import "Mission.h"
+#import "Task.h"
 #import "Utility.h"
 
-@interface SummaryViewController ()
+@interface WeeklyTaskListViewController ()
+
+@property (nonatomic) NSArray *missionsForThisWeek;
 
 @end
 
-@implementation SummaryViewController
+@implementation WeeklyTaskListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,11 +38,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:NO];
-    [self evaluateAndSetLabels];
+    self.missionsForThisWeek = [MissionHistory missionsForThisWeek];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,23 +51,35 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self.missionsForThisWeek count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [Mission numTasksPerMission];
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"WeeklyTaskCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    Mission *mission = [self.missionsForThisWeek objectAtIndex:[indexPath section]];
+    Task *task = [mission.tasks objectAtIndex:[indexPath row]];
+    [cell.textLabel setText:task.title];
+    [cell.detailTextLabel setText:[[NSString alloc] initWithFormat:@"%d%%", task.completion]];
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Mission *mission = [self.missionsForThisWeek objectAtIndex:section];
+    NSString *weekDay = [Utility getWeekdayString:mission.date andShortForm:NO];
+    NSString *date = [Utility getDateString:mission.date];
+    return [[NSString alloc] initWithFormat:@"%@ %@", weekDay, date];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -120,20 +131,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
-- (void)evaluateAndSetLabels {
-    NSArray *missions = [MissionHistory missionsForThisWeek];
-    int weekScore = [WeekSummary getWeekScore:missions];
-    int numAccomplishedTasks = [WeekSummary getNumAccomplishedTasks:missions];
-    int numTasks = [WeekSummary getNumTasksThisWeek:missions];
-    NSDate *worstPerformDate = [WeekSummary getWorstPerformDateThisWeek:missions];
-    NSDate *bestPerformDate = [WeekSummary getBestPerformDateThisWeek:missions];
-    
-    [self.scoreLabel setText:[[NSString alloc] initWithFormat:@"%d", weekScore]];
-    [self.achievementLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", numAccomplishedTasks, numTasks]];
-    [self.bestPerformLabel setText:[Utility getWeekdayString:bestPerformDate andShortForm:YES]];
-    [self.worstPerformLabel setText:[Utility getWeekdayString:worstPerformDate andShortForm:YES]];
 }
 
 @end

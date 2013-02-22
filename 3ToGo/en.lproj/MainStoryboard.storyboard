@@ -187,7 +187,7 @@
             </objects>
             <point key="canvasLocation" x="695" y="-29"/>
         </scene>
-        <!--Summary View Controller - Weekly Summary-->
+        <!--Summary View Controller - Summary-->
         <scene sceneID="Yc9-Ve-1gc">
             <objects>
                 <tableViewController id="bKr-UE-EmM" customClass="SummaryViewController" sceneMemberID="viewController">
@@ -208,6 +208,9 @@
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <segue destination="Xh5-JC-yLZ" kind="push" id="i6X-9h-Za8"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -365,7 +368,7 @@
                             <outlet property="delegate" destination="bKr-UE-EmM" id="idf-tO-d9e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Weekly Summary" id="zjo-9l-8sk"/>
+                    <navigationItem key="navigationItem" title="Summary" id="zjo-9l-8sk"/>
                     <connections>
                         <outlet property="achievementLabel" destination="gHI-Sm-PkU" id="2a1-1P-2P7"/>
                         <outlet property="bestPerformLabel" destination="Yi2-IV-n0c" id="j5K-DE-evD"/>
@@ -376,6 +379,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMa-7L-NhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130" y="695"/>
+        </scene>
+        <!--Weekly Task List View Controller - Task List-->
+        <scene sceneID="Tzx-2y-xZG">
+            <objects>
+                <tableViewController id="Xh5-JC-yLZ" customClass="WeeklyTaskListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yXw-tn-vfF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeeklyTaskCell" textLabel="3ME-ha-SBD" detailTextLabel="hGU-9d-m7u" style="IBUITableViewCellStyleValue1" id="BRs-0c-Itf">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ME-ha-SBD">
+                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hGU-9d-m7u">
+                                            <rect key="frame" x="266" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Xh5-JC-yLZ" id="ipO-MQ-HUk"/>
+                            <outlet property="delegate" destination="Xh5-JC-yLZ" id="FoE-76-mpM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Task List" id="Wuc-dj-MO4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zz-Mc-Ykw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1507" y="695"/>
         </scene>
         <!--Navigation Controller - Summary-->
         <scene sceneID="uPn-Ld-zPN">

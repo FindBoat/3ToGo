@@ -47,6 +47,10 @@ static NSInteger NumTasks = 3;
     return [[NSString alloc] initWithFormat:@"date: %@, tasks: %@", self.date, self.tasks];
 }
 
++ (NSInteger)numTasksPerMission {
+    return NumTasks;
+}
+
 + (id)createTestMission:(NSDate *)date {
     NSMutableArray *testTasks = [NSMutableArray array];
     for (int i = 0; i < NumTasks; i++) {

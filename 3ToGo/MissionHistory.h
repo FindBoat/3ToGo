@@ -11,6 +11,7 @@
 @interface MissionHistory : NSObject
 
 + (Mission *)missionForToday;
++ (NSArray *)missionsForThisWeek;
 + (void)initMissionHistory;
 + (BOOL)saveMissionHistory;
 

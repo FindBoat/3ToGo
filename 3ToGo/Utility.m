@@ -18,44 +18,25 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
-+ (NSDate *)getWeekdayOfTheWeek:(NSInteger)theWeekday {
-    NSDate *today = [NSDate date];
-    NSCalendar *gregorian = [NSCalendar currentCalendar];
-    NSDateComponents *weekdayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:today];
-    NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
-    
-    // Let's make the start day of a week Monday.
-    int daysSubtract = [weekdayComponents weekday] - theWeekday;
-    if ([weekdayComponents weekday] == 1) {
-        daysSubtract += 7;
-    }
-    if (theWeekday == 1) {
-        daysSubtract -= 7;
-    }
-    
-    [componentsToSubtract setDay: - daysSubtract];
-    return [gregorian dateByAddingComponents:componentsToSubtract toDate:today options:0];
-}
-
-+ (NSArray *)getAllWeekdaysOfTheWeek {
-    int todayWeekday = [[Utility getWeekday:[NSDate date]] weekday];
-    NSMutableArray *weekdays = [NSMutableArray array];
-    
-    // Today is Sunday.
-    if (todayWeekday == 1) {
-        [weekdays addObject:[NSDate date]];
-        todayWeekday = 7;
-    }
-    
-    for (int i = 2; i <= todayWeekday; i++) {
-        [weekdays addObject:[Utility getWeekdayOfTheWeek:i]];
-    }
-    return weekdays;
-}
-
 + (NSDateComponents *)getWeekday:(NSDate *)date {
     NSCalendar *gregorian = [NSCalendar currentCalendar];
     return [gregorian components:NSWeekdayCalendarUnit fromDate:date];
+}
+
++ (NSString *)getWeekdayString:(NSDate *)date andShortForm:(BOOL)shortForm{
+    NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
+    if (shortForm) {
+        [theDateFormatter setDateFormat:@"EEE"];
+    } else {
+        [theDateFormatter setDateFormat:@"EEEE"];
+    }
+    return [theDateFormatter stringFromDate:date];
+}
+
++ (NSString *)getDateString:(NSDate *)date {
+    NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
+    [theDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [theDateFormatter stringFromDate:date];
 }
 
 @end

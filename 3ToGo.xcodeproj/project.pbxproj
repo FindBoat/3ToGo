@@ -30,6 +30,7 @@
 		FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054216D57FC700FA4459 /* WeekSummary.m */; };
 		FD77054616D58E2E00FA4459 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054516D58E2D00FA4459 /* Mission.m */; };
 		FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054816D58FB100FA4459 /* MissionHistory.m */; };
+		FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		FD77054516D58E2D00FA4459 /* Mission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mission.m; sourceTree = "<group>"; };
 		FD77054716D58FB100FA4459 /* MissionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionHistory.h; sourceTree = "<group>"; };
 		FD77054816D58FB100FA4459 /* MissionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionHistory.m; sourceTree = "<group>"; };
+		FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyTaskListViewController.h; sourceTree = "<group>"; };
+		FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyTaskListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				FD77052F16D42EC700FA4459 /* EditTaskViewController.m */,
 				FD77053D16D5621800FA4459 /* SummaryViewController.h */,
 				FD77053E16D5621800FA4459 /* SummaryViewController.m */,
+				FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */,
+				FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */,
 				FD77054616D58E2E00FA4459 /* Mission.m in Sources */,
 				FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */,
+				FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,17 @@ static int HourPerDay = 60 * 60 * 24;
     return [MissionHistoryList lastObject];
 }
 
++ (NSArray *)missionsForThisWeek {
+    int weekDay = [[Utility getWeekday:[NSDate date]] weekday];
+    int num = (weekDay == 1) ? 7 : weekDay - 1;
+    NSMutableArray *missions = [NSMutableArray array];
+    int historyLength = [MissionHistoryList count];
+    for (int i = 0; i < num; i++) {
+        [missions insertObject:[MissionHistoryList objectAtIndex:historyLength - i - 1] atIndex:0];
+    }
+    return missions;
+}
+
 
 + (void)initMissionHistory {
     if (MissionHistoryList) {
