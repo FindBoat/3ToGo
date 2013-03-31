@@ -30,6 +30,7 @@
 		FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054216D57FC700FA4459 /* WeekSummary.m */; };
 		FD77054616D58E2E00FA4459 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054516D58E2D00FA4459 /* Mission.m */; };
 		FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054816D58FB100FA4459 /* MissionHistory.m */; };
+		FDA14A811703F1A600F78C1A /* menu-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA14A801703F1A600F78C1A /* menu-bar.png */; };
 		FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -44,9 +45,9 @@
 		FD77050216D34A1400FA4459 /* 3ToGo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "3ToGo-Prefix.pch"; sourceTree = "<group>"; };
 		FD77050316D34A1400FA4459 /* TTGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTGAppDelegate.h; sourceTree = "<group>"; };
 		FD77050416D34A1400FA4459 /* TTGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTGAppDelegate.m; sourceTree = "<group>"; };
-		FD77050616D34A1400FA4459 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FD77050816D34A1400FA4459 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		FD77050A16D34A1400FA4459 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FD77050616D34A1400FA4459 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = 3ToGo/Default.png; sourceTree = "<group>"; };
+		FD77050816D34A1400FA4459 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "3ToGo/Default@2x.png"; sourceTree = "<group>"; };
+		FD77050A16D34A1400FA4459 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "3ToGo/Default-568h@2x.png"; sourceTree = "<group>"; };
 		FD77050D16D34A1500FA4459 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FD77051216D34A1500FA4459 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = 3ToGo/first.png; sourceTree = "<group>"; };
 		FD77051416D34A1500FA4459 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "3ToGo/first@2x.png"; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		FD77054516D58E2D00FA4459 /* Mission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mission.m; sourceTree = "<group>"; };
 		FD77054716D58FB100FA4459 /* MissionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionHistory.h; sourceTree = "<group>"; };
 		FD77054816D58FB100FA4459 /* MissionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionHistory.m; sourceTree = "<group>"; };
+		FDA14A801703F1A600F78C1A /* menu-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-bar.png"; sourceTree = "<group>"; };
 		FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyTaskListViewController.h; sourceTree = "<group>"; };
 		FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyTaskListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,9 +140,6 @@
 				FD7704FD16D34A1400FA4459 /* InfoPlist.strings */,
 				FD77050016D34A1400FA4459 /* main.m */,
 				FD77050216D34A1400FA4459 /* 3ToGo-Prefix.pch */,
-				FD77050616D34A1400FA4459 /* Default.png */,
-				FD77050816D34A1400FA4459 /* Default@2x.png */,
-				FD77050A16D34A1400FA4459 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -148,6 +147,10 @@
 		FD77052216D34A3E00FA4459 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDA14A801703F1A600F78C1A /* menu-bar.png */,
+				FD77050616D34A1400FA4459 /* Default.png */,
+				FD77050816D34A1400FA4459 /* Default@2x.png */,
+				FD77050A16D34A1400FA4459 /* Default-568h@2x.png */,
 				FD77051216D34A1500FA4459 /* first.png */,
 				FD77051416D34A1500FA4459 /* first@2x.png */,
 				FD77051916D34A1500FA4459 /* second.png */,
@@ -265,6 +268,7 @@
 				FD77051516D34A1500FA4459 /* first@2x.png in Resources */,
 				FD77051A16D34A1500FA4459 /* second.png in Resources */,
 				FD77051C16D34A1500FA4459 /* second@2x.png in Resources */,
+				FDA14A811703F1A600F78C1A /* menu-bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
