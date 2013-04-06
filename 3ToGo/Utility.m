@@ -39,4 +39,11 @@
     return [theDateFormatter stringFromDate:date];
 }
 
++ (NSInteger)getDateDiff:(NSDate *)date1 andDate:(NSDate *)date2 {
+    NSDate *d1 = [Utility dateWithOutTime:date1];
+    NSDate *d2 = [Utility dateWithOutTime:date2];
+    NSTimeInterval secondsBetween = [d2 timeIntervalSinceDate:d1];
+    return secondsBetween / (24 * 60 * 60);
+}
+
 @end

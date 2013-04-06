@@ -16,6 +16,10 @@
     // Override point for customization after application launch.
     [MissionHistory initMissionHistory];
 //    [MissionHistory initTestMissionHistory];
+    
+    // Set navigation bar image.
+    UIImage *navBar = [UIImage imageNamed:@"navbar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
     return YES;
 }
 							

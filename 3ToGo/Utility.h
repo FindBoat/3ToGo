@@ -14,5 +14,6 @@
 + (NSDateComponents *)getWeekday:(NSDate *)date;
 + (NSString *)getWeekdayString:(NSDate *)date andShortForm:(BOOL)shortForm;
 + (NSString *)getDateString:(NSDate *)date;
++ (NSInteger)getDateDiff:(NSDate *)date1 andDate:(NSDate *)date2;
 
 @end

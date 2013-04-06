@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD068FF117109D20009725BD /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD068FF017109D1F009725BD /* navbar.png */; };
 		FD7704F516D34A1400FA4459 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F416D34A1400FA4459 /* UIKit.framework */; };
 		FD7704F716D34A1400FA4459 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F616D34A1400FA4459 /* Foundation.framework */; };
 		FD7704F916D34A1400FA4459 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F816D34A1400FA4459 /* CoreGraphics.framework */; };
@@ -30,11 +31,11 @@
 		FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054216D57FC700FA4459 /* WeekSummary.m */; };
 		FD77054616D58E2E00FA4459 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054516D58E2D00FA4459 /* Mission.m */; };
 		FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054816D58FB100FA4459 /* MissionHistory.m */; };
-		FDA14A811703F1A600F78C1A /* menu-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA14A801703F1A600F78C1A /* menu-bar.png */; };
 		FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD068FF017109D1F009725BD /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbar.png; path = 3ToGo/navbar.png; sourceTree = "<group>"; };
 		FD7704F116D34A1400FA4459 /* 3ToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3ToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7704F416D34A1400FA4459 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD7704F616D34A1400FA4459 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,7 +72,6 @@
 		FD77054516D58E2D00FA4459 /* Mission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mission.m; sourceTree = "<group>"; };
 		FD77054716D58FB100FA4459 /* MissionHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionHistory.h; sourceTree = "<group>"; };
 		FD77054816D58FB100FA4459 /* MissionHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionHistory.m; sourceTree = "<group>"; };
-		FDA14A801703F1A600F78C1A /* menu-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-bar.png"; sourceTree = "<group>"; };
 		FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyTaskListViewController.h; sourceTree = "<group>"; };
 		FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyTaskListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,7 +147,7 @@
 		FD77052216D34A3E00FA4459 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FDA14A801703F1A600F78C1A /* menu-bar.png */,
+				FD068FF017109D1F009725BD /* navbar.png */,
 				FD77050616D34A1400FA4459 /* Default.png */,
 				FD77050816D34A1400FA4459 /* Default@2x.png */,
 				FD77050A16D34A1400FA4459 /* Default-568h@2x.png */,
@@ -268,7 +268,7 @@
 				FD77051516D34A1500FA4459 /* first@2x.png in Resources */,
 				FD77051A16D34A1500FA4459 /* second.png in Resources */,
 				FD77051C16D34A1500FA4459 /* second@2x.png in Resources */,
-				FDA14A811703F1A600F78C1A /* menu-bar.png in Resources */,
+				FD068FF117109D20009725BD /* navbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +378,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3ToGo/3ToGo-Prefix.pch";
 				INFOPLIST_FILE = "3ToGo/3ToGo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,6 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "3ToGo/3ToGo-Prefix.pch";
 				INFOPLIST_FILE = "3ToGo/3ToGo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
