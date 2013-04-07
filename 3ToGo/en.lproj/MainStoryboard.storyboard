@@ -8,7 +8,7 @@
         <scene sceneID="15">
             <objects>
                 <tabBarController id="4" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -173,7 +173,7 @@
         <scene sceneID="NwG-yy-vFD">
             <objects>
                 <navigationController id="Qj2-sI-kF0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Task" id="lgq-Wh-6Hf"/>
+                    <tabBarItem key="tabBarItem" title="Task" image="item-task.png" id="lgq-Wh-6Hf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLn-hS-1pa">
@@ -383,7 +383,7 @@
         <scene sceneID="uPn-Ld-zPN">
             <objects>
                 <navigationController id="M8V-9d-kbn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Summary" id="1fO-Y3-iPH"/>
+                    <tabBarItem key="tabBarItem" title="Summary" image="item-summary.png" id="1fO-Y3-iPH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hbo-4I-P8U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -399,6 +399,48 @@
             <point key="canvasLocation" x="702" y="681"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="item-summary.png" width="24" height="24"/>
+        <image name="item-task.png" width="24" height="18"/>
+    </resources>
+    <classes>
+        <class className="EditTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="completionSliderChanged:"/>
+                <relationship kind="outlet" name="completionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="completionSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="detailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SummaryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="achievementLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bestPerformLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="worstPerformLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TaskListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelEdit:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="saveEdit:" candidateClass="UIStoryboardSegue"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="WeeklyTaskListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WeeklyTaskListViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

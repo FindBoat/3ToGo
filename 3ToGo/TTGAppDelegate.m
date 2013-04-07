@@ -18,8 +18,13 @@
 //    [MissionHistory initTestMissionHistory];
     
     // Set navigation bar image.
-    UIImage *navBar = [UIImage imageNamed:@"navbar.png"];
+    UIImage *navBar = [UIImage imageNamed:@"navbar-1.png"];
     [[UINavigationBar appearance] setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+    
+    // Set tab bar image.
+    UIImage *tabBar = [UIImage imageNamed:@"tabbar.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBar];
+    
     return YES;
 }
 							
