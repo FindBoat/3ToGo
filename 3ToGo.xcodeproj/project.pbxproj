@@ -12,6 +12,12 @@
 		FD0690071711E7AD009725BD /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0690061711E7AD009725BD /* tabbar.png */; };
 		FD0690111711EE5D009725BD /* item-task.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0690101711EE5D009725BD /* item-task.png */; };
 		FD0690131711EEC2009725BD /* item-summary.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0690121711EEC2009725BD /* item-summary.png */; };
+		FD0690151713CC32009725BD /* item-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0690141713CC32009725BD /* item-dot.png */; };
+		FD0690171719E02B009725BD /* btn-green.png in Resources */ = {isa = PBXBuildFile; fileRef = FD0690161719E02B009725BD /* btn-green.png */; };
+		FD06901A171A04DE009725BD /* ColorAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD069019171A04DE009725BD /* ColorAlertView.m */; };
+		FD06901F171B12C2009725BD /* TaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD06901E171B12C2009725BD /* TaskViewCell.m */; };
+		FD069027171B19B5009725BD /* not-done.png in Resources */ = {isa = PBXBuildFile; fileRef = FD069026171B19B5009725BD /* not-done.png */; };
+		FD069029171B19E4009725BD /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = FD069028171B19E4009725BD /* done.png */; };
 		FD7704F516D34A1400FA4459 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F416D34A1400FA4459 /* UIKit.framework */; };
 		FD7704F716D34A1400FA4459 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F616D34A1400FA4459 /* Foundation.framework */; };
 		FD7704F916D34A1400FA4459 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7704F816D34A1400FA4459 /* CoreGraphics.framework */; };
@@ -44,6 +50,14 @@
 		FD0690061711E7AD009725BD /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		FD0690101711EE5D009725BD /* item-task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-task.png"; sourceTree = "<group>"; };
 		FD0690121711EEC2009725BD /* item-summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-summary.png"; sourceTree = "<group>"; };
+		FD0690141713CC32009725BD /* item-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item-dot.png"; sourceTree = "<group>"; };
+		FD0690161719E02B009725BD /* btn-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-green.png"; sourceTree = "<group>"; };
+		FD069018171A04DE009725BD /* ColorAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAlertView.h; sourceTree = "<group>"; };
+		FD069019171A04DE009725BD /* ColorAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAlertView.m; sourceTree = "<group>"; };
+		FD06901D171B12C1009725BD /* TaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewCell.h; sourceTree = "<group>"; };
+		FD06901E171B12C2009725BD /* TaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewCell.m; sourceTree = "<group>"; };
+		FD069026171B19B5009725BD /* not-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "not-done.png"; sourceTree = "<group>"; };
+		FD069028171B19E4009725BD /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
 		FD7704F116D34A1400FA4459 /* 3ToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3ToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7704F416D34A1400FA4459 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD7704F616D34A1400FA4459 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,6 +169,10 @@
 		FD77052216D34A3E00FA4459 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD069028171B19E4009725BD /* done.png */,
+				FD069026171B19B5009725BD /* not-done.png */,
+				FD0690161719E02B009725BD /* btn-green.png */,
+				FD0690141713CC32009725BD /* item-dot.png */,
 				FD0690121711EEC2009725BD /* item-summary.png */,
 				FD0690101711EE5D009725BD /* item-task.png */,
 				FD0690061711E7AD009725BD /* tabbar.png */,
@@ -195,6 +213,10 @@
 				FD77054516D58E2D00FA4459 /* Mission.m */,
 				FD77054716D58FB100FA4459 /* MissionHistory.h */,
 				FD77054816D58FB100FA4459 /* MissionHistory.m */,
+				FD069018171A04DE009725BD /* ColorAlertView.h */,
+				FD069019171A04DE009725BD /* ColorAlertView.m */,
+				FD06901D171B12C1009725BD /* TaskViewCell.h */,
+				FD06901E171B12C2009725BD /* TaskViewCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -285,6 +307,10 @@
 				FD0690071711E7AD009725BD /* tabbar.png in Resources */,
 				FD0690111711EE5D009725BD /* item-task.png in Resources */,
 				FD0690131711EEC2009725BD /* item-summary.png in Resources */,
+				FD0690151713CC32009725BD /* item-dot.png in Resources */,
+				FD0690171719E02B009725BD /* btn-green.png in Resources */,
+				FD069027171B19B5009725BD /* not-done.png in Resources */,
+				FD069029171B19E4009725BD /* done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +333,8 @@
 				FD77054616D58E2E00FA4459 /* Mission.m in Sources */,
 				FD77054916D58FB200FA4459 /* MissionHistory.m in Sources */,
 				FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */,
+				FD06901A171A04DE009725BD /* ColorAlertView.m in Sources */,
+				FD06901F171B12C2009725BD /* TaskViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

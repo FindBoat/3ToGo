@@ -71,6 +71,7 @@
     Task *task = [mission.tasks objectAtIndex:[indexPath row]];
     [cell.textLabel setText:task.title];
     [cell.detailTextLabel setText:[[NSString alloc] initWithFormat:@"%d%%", task.completion]];
+    [cell.detailTextLabel setTextColor:[Utility getColorFromCompletion:task.completion andTotal:100]];
     return cell;
 }
 

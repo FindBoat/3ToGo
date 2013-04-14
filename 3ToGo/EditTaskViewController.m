@@ -8,6 +8,7 @@
 
 #import "EditTaskViewController.h"
 #import "Task.h"
+#import "Utility.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface EditTaskViewController ()
@@ -68,6 +69,7 @@
         [self.detailTextField setText:self.editTask.detail];
         [self.completionSlider setValue:(float)self.editTask.completion];
         [self.completionLabel setText:[[NSString alloc] initWithFormat:@"%d%%", self.editTask.completion]];
+        [self.completionLabel setTextColor:[Utility getColorFromCompletion:self.editTask.completion andTotal:100]];
     }
 }
 
@@ -75,6 +77,7 @@
     UISlider *slider = (UISlider *)sender;
     int completion = (int)slider.value;
     [self.completionLabel setText:[[NSString alloc] initWithFormat:@"%d%%", completion]];
+    [self.completionLabel setTextColor:[Utility getColorFromCompletion:completion andTotal:100]];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {

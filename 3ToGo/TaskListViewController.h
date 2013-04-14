@@ -14,5 +14,6 @@
 
 - (IBAction)saveEdit:(UIStoryboardSegue *)segue;
 - (IBAction)cancelEdit:(UIStoryboardSegue *)segue;
+- (IBAction)addMoreTask:(id)sender;
 
 @end

@@ -12,6 +12,9 @@
 #import "Mission.h"
 #import "Constants.h"
 #import "MissionHistory.h"
+#import "Utility.h"
+#import "ColorAlertView.h"
+#import "TaskViewCell.h"
 
 @interface TaskListViewController ()
 
@@ -65,16 +68,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TaskCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TaskCell"];
+        cell = [[TaskViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TaskCell"];
     }
     
     Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
-    [cell.textLabel setText:task.title];
-    [cell.detailTextLabel setText:[[NSString alloc] initWithFormat:@"%d%%", task.completion]];
+    [cell.textTitle setText:task.title];
+//    [cell setStatus:FALSE];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
+    
+    return 44;
 }
 
 /*
@@ -127,19 +135,27 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    TaskViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setStatus:!cell.done];
+    [[self tableView] reloadData];
+
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *sectionName;
-    switch (section) {
-        case 0:
-            sectionName = @"Today Task";
-            break;
-        default:
-            sectionName = @"";
-            break;
-    }
-    return sectionName;
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,100,30)];
+    title.text = @"Today Task";
+    [title setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+    [title setTextColor:[UIColor colorWithRed:(38/255.f) green:(171/255.f) blue:(255/255.f) alpha:1.0f]];
+    [title setBackgroundColor:[UIColor clearColor]];
+
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    [headerView addSubview:title];
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 70;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -166,6 +182,17 @@
     if ([[segue identifier] isEqualToString:@"CancelEdit"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
+}
+
+- (IBAction)addMoreTask:(id)sender {
+    ColorAlertView *message = [[ColorAlertView alloc] initWithTitle:@"To Be Productive"
+                                                      message:@"Just pick THREE big things and NO MORE!"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    UIColor *alertColor = [UIColor colorWithRed:(10/255.f) green:(100/255.f) blue:(10/255.f) alpha:1.0f];
+    [ColorAlertView setBackgroundColor:alertColor withStrokeColor:alertColor];
+    [message show];
 }
 
 @end

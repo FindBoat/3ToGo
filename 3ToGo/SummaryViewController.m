@@ -122,6 +122,24 @@
      */
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,15,300,30)];
+    title.text = @"This Week You Get";
+    [title setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+    [title setTextColor:[UIColor colorWithRed:(38/255.f) green:(171/255.f) blue:(255/255.f) alpha:1.0f]];
+    [title setBackgroundColor:[UIColor clearColor]];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    [headerView addSubview:title];
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 57;
+}
+
+
 - (void)evaluateAndSetLabels {
     NSArray *missions = [MissionHistory missionsForThisWeek];
     int weekScore = [WeekSummary getWeekScore:missions];
@@ -130,8 +148,12 @@
     NSDate *worstPerformDate = [WeekSummary getWorstPerformDateThisWeek:missions];
     NSDate *bestPerformDate = [WeekSummary getBestPerformDateThisWeek:missions];
     
-    [self.scoreLabel setText:[[NSString alloc] initWithFormat:@"%d", weekScore]];
+    [self.scoreLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", weekScore, 100]];
+    [self.scoreLabel setTextColor:[Utility getColorFromCompletion:weekScore andTotal:100]];
+    
     [self.achievementLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", numAccomplishedTasks, numTasks]];
+    [self.achievementLabel setTextColor:[Utility getColorFromCompletion:numAccomplishedTasks andTotal:numTasks]];
+
     [self.bestPerformLabel setText:[Utility getWeekdayString:bestPerformDate andShortForm:YES]];
     [self.worstPerformLabel setText:[Utility getWeekdayString:worstPerformDate andShortForm:YES]];
 }
