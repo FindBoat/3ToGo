@@ -75,8 +75,7 @@
     
     Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
     [cell.textTitle setText:task.title];
-//    [cell setStatus:FALSE];
-    
+    [cell setStatus:task.status];
     return cell;
 }
 
@@ -136,8 +135,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     TaskViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setStatus:!cell.done];
+    Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
+    if (task.status == DONE) {
+        task.status = UNSTARTED;
+    } else {
+        task.status = DONE;
+    }
+    [cell setStatus:task.status];
     [[self tableView] reloadData];
+    [MissionHistory saveMissionHistory];
 
 }
 
@@ -158,31 +164,31 @@
     return 70;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"TaskDetail"]) {
-        EditTaskViewController *editController = [segue destinationViewController];
-        editController.editTask = [self.missionToday.tasks objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-    }
-}
-
-- (IBAction)saveEdit:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"SaveEdit"]) {
-        EditTaskViewController *editController = [segue sourceViewController];
-        if (editController.editTask) {
-            [self.missionToday.tasks replaceObjectAtIndex:[[self.tableView indexPathForSelectedRow] row] withObject:editController.editTask];
-            [[self tableView] reloadData];
-        }
-        [self dismissViewControllerAnimated:YES completion:NULL];
-        [MissionHistory saveMissionHistory];
-    }
-
-}
-
-- (IBAction)cancelEdit:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"CancelEdit"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
-}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"TaskDetail"]) {
+//        EditTaskViewController *editController = [segue destinationViewController];
+//        editController.editTask = [self.missionToday.tasks objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+//    }
+//}
+//
+//- (IBAction)saveEdit:(UIStoryboardSegue *)segue {
+//    if ([[segue identifier] isEqualToString:@"SaveEdit"]) {
+//        EditTaskViewController *editController = [segue sourceViewController];
+//        if (editController.editTask) {
+//            [self.missionToday.tasks replaceObjectAtIndex:[[self.tableView indexPathForSelectedRow] row] withObject:editController.editTask];
+//            [[self tableView] reloadData];
+//        }
+//        [self dismissViewControllerAnimated:YES completion:NULL];
+//        [MissionHistory saveMissionHistory];
+//    }
+//
+//}
+//
+//- (IBAction)cancelEdit:(UIStoryboardSegue *)segue {
+//    if ([[segue identifier] isEqualToString:@"CancelEdit"]) {
+//        [self dismissViewControllerAnimated:YES completion:NULL];
+//    }
+//}
 
 - (IBAction)addMoreTask:(id)sender {
     ColorAlertView *message = [[ColorAlertView alloc] initWithTitle:@"To Be Productive"

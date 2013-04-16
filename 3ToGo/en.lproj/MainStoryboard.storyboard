@@ -410,34 +410,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeeklyTaskCell" textLabel="3ME-ha-SBD" detailTextLabel="hGU-9d-m7u" imageView="XEX-EH-opx" style="IBUITableViewCellStyleValue1" id="BRs-0c-Itf">
+                            <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeeklyTaskCell" id="A3S-6J-KLt" customClass="TaskViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ME-ha-SBD">
-                                            <rect key="frame" x="26" y="11" width="35" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hGU-9d-m7u">
-                                            <rect key="frame" x="266" y="11" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="item-dot.png" id="XEX-EH-opx">
-                                            <rect key="frame" x="10" y="18" width="6" height="6"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="item-dot.png" translatesAutoresizingMaskIntoConstraints="NO" id="4gw-nU-l4g">
+                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="4H1-l2-Hqb"/>
+                                                <constraint firstAttribute="height" constant="22" id="tmB-u6-OdB"/>
+                                            </constraints>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Most Important Task" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-EQ-fhF">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43" id="HVi-Ix-1sf"/>
+                                                <constraint firstAttribute="width" constant="233" id="cs0-UR-vQG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="not-done.png" translatesAutoresizingMaskIntoConstraints="NO" id="m6d-Cw-Sei">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="21" id="chz-sG-co0"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Srl-EQ-fhF" firstAttribute="top" secondItem="A3S-6J-KLt" secondAttribute="top" type="default" id="0NH-15-8EB"/>
+                                    <constraint firstItem="m6d-Cw-Sei" firstAttribute="centerY" secondItem="A3S-6J-KLt" secondAttribute="centerY" type="default" id="50W-Of-Jm6"/>
+                                    <constraint firstItem="Srl-EQ-fhF" firstAttribute="leading" secondItem="A3S-6J-KLt" secondAttribute="leading" constant="18" id="HBZ-tz-W4E"/>
+                                    <constraint firstItem="m6d-Cw-Sei" firstAttribute="leading" secondItem="Srl-EQ-fhF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Ldg-Ka-uAZ"/>
+                                    <constraint firstItem="m6d-Cw-Sei" firstAttribute="bottom" secondItem="4gw-nU-l4g" secondAttribute="bottom" type="default" id="Ol8-aC-vaf"/>
+                                    <constraint firstItem="4gw-nU-l4g" firstAttribute="leading" secondItem="A3S-6J-KLt" secondAttribute="leading" constant="4" id="t5N-8Y-H5J"/>
+                                    <constraint firstItem="m6d-Cw-Sei" firstAttribute="top" secondItem="4gw-nU-l4g" secondAttribute="top" type="default" id="tgu-pM-hPp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageStatus" destination="m6d-Cw-Sei" id="kDy-HW-gsi"/>
+                                    <outlet property="textTitle" destination="Srl-EQ-fhF" id="yk2-Ih-uzP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -480,17 +498,6 @@
         <image name="not-done.png" width="14" height="12"/>
     </resources>
     <classes>
-        <class className="EditTaskViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditTaskViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="completionSliderChanged:"/>
-                <relationship kind="outlet" name="completionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="completionSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="detailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>

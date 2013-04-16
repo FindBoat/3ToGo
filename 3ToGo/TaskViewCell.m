@@ -26,16 +26,15 @@
     // Configure the view for the selected state
 }
 
-- (void)setStatus:(BOOL)status {
+- (void)setStatus:(TaskStatus)status {
     NSLog(@"setdone");
-    if (status) {
+    if (status == DONE) {
         [self.textTitle setTextColor:[UIColor colorWithRed:(0/255.f) green:(255/255.f) blue:(0/255.f) alpha:1.0f]];
         [self.imageStatus setImage:[UIImage imageNamed:@"done.png"]];
     } else {
         [self.textTitle setTextColor:[UIColor colorWithRed:(0/255.f) green:(0/255.f) blue:(0/255.f) alpha:1.0f]];
         [self.imageStatus setImage:[UIImage imageNamed:@"not-done.png"]];
     }
-    self.done = status;
 }
 
 @end

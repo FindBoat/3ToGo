@@ -55,8 +55,9 @@ static NSInteger NumTasks = 3;
     NSMutableArray *testTasks = [NSMutableArray array];
     for (int i = 0; i < NumTasks; i++) {
         int completion = arc4random() % 100;
+        TaskStatus status = completion < 50 ? UNSTARTED : DONE;
         NSString *title = [[NSString alloc] initWithFormat:@"title%d", i];
-        Task *task = [[Task alloc] initWithTitle:title andDetail:nil andCompletion:completion andRank:i];
+        Task *task = [[Task alloc] initWithTitle:title andDetail:nil andStatus:status andRank:i];
         [testTasks addObject:task];
     }
     return [[Mission alloc] initWithTasks:testTasks andDate:date];

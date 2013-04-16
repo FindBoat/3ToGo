@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
 @interface TaskViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageStatus;
 @property (weak, nonatomic) IBOutlet UITextView *textTitle;
-@property (nonatomic) BOOL done;
 
-- (void)setStatus:(BOOL)done;
+- (void)setStatus:(TaskStatus)status;
 
 @end

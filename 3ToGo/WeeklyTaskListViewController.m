@@ -11,6 +11,7 @@
 #import "Mission.h"
 #import "Task.h"
 #import "Utility.h"
+#import "TaskViewCell.h"
 
 @interface WeeklyTaskListViewController ()
 
@@ -62,16 +63,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"WeeklyTaskCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[TaskViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     Mission *mission = [self.missionsForThisWeek objectAtIndex:[indexPath section]];
     Task *task = [mission.tasks objectAtIndex:[indexPath row]];
-    [cell.textLabel setText:task.title];
-    [cell.detailTextLabel setText:[[NSString alloc] initWithFormat:@"%d%%", task.completion]];
-    [cell.detailTextLabel setTextColor:[Utility getColorFromCompletion:task.completion andTotal:100]];
+    [cell.textTitle setText:task.title];
+    [cell setStatus:task.status];
     return cell;
 }
 

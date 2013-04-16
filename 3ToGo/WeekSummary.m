@@ -19,17 +19,18 @@ static float Weight[] = {0.4, 0.3, 0.3};
     float score = 0;
     for (Mission *mission in missions) {
         score += [WeekSummary getPerform:mission];
+        NSLog(@"%f", score);
     }
     score /= [missions count];
+    NSLog(@"%d", [missions count]);
     return (int)score;
 }
 
 + (NSInteger)getNumAccomplishedTasks:(NSArray *)missions {
-    int threshold = 80;
     int numAccomplished = 0;
     for (Mission *mission in missions) {
         for (Task *task in mission.tasks) {
-            if (task.completion >= threshold) {
+            if (task.status == DONE) {
                 numAccomplished++;
             }
         }
@@ -70,9 +71,12 @@ static float Weight[] = {0.4, 0.3, 0.3};
 + (float)getPerform:(Mission *)mission {
     float score = 0;
     for (int i = 0; i < [Mission numTasksPerMission]; i++) {
-        score += ((Task *)[mission.tasks objectAtIndex:i]).completion * Weight[i];
+        Task* task = (Task *)[mission.tasks objectAtIndex:i];
+        if (task.status == DONE) {
+            score += 100 * Weight[i];
+        }
     }
-    return score / (float)[Mission numTasksPerMission];
+    return score;
 }
 
 @end

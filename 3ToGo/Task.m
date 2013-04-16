@@ -10,25 +10,25 @@
 
 @implementation Task
 
-- (id)initWithTitle:(NSString *)title andDetail:(NSString *)detail andCompletion:(NSInteger)completion andRank:(NSInteger)rank {
+- (id)initWithTitle:(NSString *)title andDetail:(NSString *)detail andStatus:(TaskStatus)status andRank:(NSInteger)rank {
     self = [super init];
     if (self) {
         self.title = title;
         self.detail = detail;
-        self.completion = completion;
+        self.status = status;
         self.rank = rank;
     }
     return self;
 }
 
 - (id)initWithTitle:(NSString *)title andRank:(NSInteger)rank {
-    return [self initWithTitle:title andDetail:nil andCompletion:0 andRank:rank];
+    return [self initWithTitle:title andDetail:nil andStatus:UNSTARTED andRank:rank];
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.title forKey:@"title"];
     [coder encodeObject:self.detail forKey:@"detail"];
-    [coder encodeInteger:self.completion forKey:@"completion"];
+    [coder encodeInteger:self.status forKey:@"status"];
     [coder encodeInteger:self.rank forKey:@"rank"];
 }
 
@@ -37,7 +37,7 @@
     if (self) {
         [self setTitle:[decoder decodeObjectForKey:@"title"]];
         [self setDetail:[decoder decodeObjectForKey:@"detail"]];
-        [self setCompletion:[decoder decodeIntegerForKey:@"completion"]];
+        [self setStatus:[decoder decodeIntegerForKey:@"status"]];
         [self setRank:[decoder decodeIntegerForKey:@"rank"]];
     }
     return self;
