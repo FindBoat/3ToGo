@@ -134,7 +134,8 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    TaskViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    TaskViewCell *cell = (TaskViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+
     Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
     if (task.status == DONE) {
         task.status = UNSTARTED;
@@ -146,6 +147,29 @@
     [MissionHistory saveMissionHistory];
 
 }
+
+- (void) textViewDidEndEditing:(UITextView *)textView {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TaskViewCell*)[[textView superview] superview]];
+    Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
+    task.title = textView.text;
+    [MissionHistory saveMissionHistory];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+//
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+//    NSLog(@"333");
+//    return YES;
+//}
+
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,100,30)];

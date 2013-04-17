@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class Mission;
-@interface TaskListViewController : UITableViewController
+@interface TaskListViewController : UITableViewController <UITextViewDelegate>
 
 @property (nonatomic) Mission *missionToday;
 
