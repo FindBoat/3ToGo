@@ -36,28 +36,64 @@
                             <rect key="frame" x="0.0" y="102" width="320" height="363"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLk-s7-xwQ">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="00" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tgy-ed-PX8">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="JKZ-E0-RQt"/>
+                                        <constraint firstAttribute="width" constant="63" id="bpo-zw-J3W"/>
+                                        <constraint firstAttribute="height" constant="66" id="nHi-Of-DNm"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Add More Task?" backgroundImage="btn-green.png">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="addMoreTask:" destination="75x-WG-91v" eventType="touchUpInside" id="PDm-pW-LSx"/>
-                                    </connections>
-                                </button>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="40"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="00" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uKC-VA-bNM">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="63" id="GDL-Gf-Wd0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="40"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text=":" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-gY-Dl5">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="Cub-nv-icU"/>
+                                        <constraint firstAttribute="width" constant="53" id="zLn-5L-G7D"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="40"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="00" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gQd-sb-fef">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="63" id="34Q-ov-29s"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="40"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text=":" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sma-6u-KOE">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="53" id="LNi-VD-BqV"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="40"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="qLk-s7-xwQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="By2-Ai-yTs"/>
-                                <constraint firstItem="qLk-s7-xwQ" firstAttribute="leading" secondItem="HIz-9x-bMj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="M4K-Kv-1dt"/>
-                                <constraint firstItem="qLk-s7-xwQ" firstAttribute="top" secondItem="HIz-9x-bMj" secondAttribute="top" constant="52" id="Q2O-hg-bDd"/>
+                                <constraint firstItem="Tgy-ed-PX8" firstAttribute="leading" secondItem="HIz-9x-bMj" secondAttribute="leading" constant="41" id="2CD-YO-UNd"/>
+                                <constraint firstAttribute="trailing" secondItem="gQd-sb-fef" secondAttribute="trailing" constant="56" id="ADi-D9-OsS"/>
+                                <constraint firstItem="gQd-sb-fef" firstAttribute="top" secondItem="uKC-VA-bNM" secondAttribute="top" type="default" id="CRv-qd-85w"/>
+                                <constraint firstItem="uKC-VA-bNM" firstAttribute="top" secondItem="Tgy-ed-PX8" secondAttribute="top" type="default" id="OZh-km-upC"/>
+                                <constraint firstItem="Sma-6u-KOE" firstAttribute="bottom" secondItem="3IG-gY-Dl5" secondAttribute="bottom" type="default" id="Q4M-2C-UqO"/>
+                                <constraint firstItem="3IG-gY-Dl5" firstAttribute="top" secondItem="HIz-9x-bMj" secondAttribute="top" constant="26" id="RSY-6N-Jqu"/>
+                                <constraint firstItem="gQd-sb-fef" firstAttribute="bottom" secondItem="uKC-VA-bNM" secondAttribute="bottom" type="default" id="TKE-Lz-K5Y"/>
+                                <constraint firstItem="3IG-gY-Dl5" firstAttribute="leading" secondItem="HIz-9x-bMj" secondAttribute="leading" constant="86" id="V5Q-1k-fJu"/>
+                                <constraint firstItem="uKC-VA-bNM" firstAttribute="bottom" secondItem="Tgy-ed-PX8" secondAttribute="bottom" type="default" id="Ytt-9K-dFM"/>
+                                <constraint firstItem="Tgy-ed-PX8" firstAttribute="top" secondItem="HIz-9x-bMj" secondAttribute="top" constant="28" id="cAe-lj-qC4"/>
+                                <constraint firstAttribute="trailing" secondItem="Sma-6u-KOE" secondAttribute="trailing" constant="100" id="cuS-3O-s9Y"/>
+                                <constraint firstItem="uKC-VA-bNM" firstAttribute="leading" secondItem="HIz-9x-bMj" secondAttribute="leading" constant="120" id="s7s-Wv-0JK"/>
+                                <constraint firstItem="3IG-gY-Dl5" firstAttribute="top" secondItem="Sma-6u-KOE" secondAttribute="top" type="default" id="zkp-bk-l2H"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -118,7 +154,20 @@
                             <outlet property="delegate" destination="75x-WG-91v" id="CdA-Xo-8XC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="3ToGo" id="8dN-D2-b5b"/>
+                    <navigationItem key="navigationItem" title="3ToGo" id="8dN-D2-b5b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lxY-LU-9ac">
+                            <connections>
+                                <action selector="addMoreTask:" destination="75x-WG-91v" id="x3B-6s-QXx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textColon1" destination="3IG-gY-Dl5" id="2a8-S8-Tb8"/>
+                        <outlet property="textColon2" destination="Sma-6u-KOE" id="q7Z-2T-ycV"/>
+                        <outlet property="textHourLeft" destination="Tgy-ed-PX8" id="dH7-q2-Ay3"/>
+                        <outlet property="textMinuteLeft" destination="uKC-VA-bNM" id="zHQ-ES-R49"/>
+                        <outlet property="textSecondLeft" destination="gQd-sb-fef" id="mPm-y7-cVb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njL-f4-MEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,7 +476,7 @@
                                                 <constraint firstAttribute="height" constant="22" id="tmB-u6-OdB"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Most Important Task" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-EQ-fhF">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Most Important Task" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-EQ-fhF">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="43" id="HVi-Ix-1sf"/>
@@ -500,41 +549,6 @@
         <image name="item-task.png" width="24" height="18"/>
         <image name="not-done.png" width="14" height="12"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SummaryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="achievementLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bestPerformLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="worstPerformLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TaskListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMoreTask:"/>
-                <relationship kind="action" name="cancelEdit:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="saveEdit:" candidateClass="UIStoryboardSegue"/>
-            </relationships>
-        </class>
-        <class className="TaskViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageStatus" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="textTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="WeeklyTaskListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WeeklyTaskListViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

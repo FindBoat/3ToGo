@@ -15,12 +15,17 @@
 #import "Utility.h"
 #import "ColorAlertView.h"
 #import "TaskViewCell.h"
+#import "ActionSheetPicker.h"
 
 @interface TaskListViewController ()
 
 @end
 
 @implementation TaskListViewController
+
+NSDate *deadline;
+NSArray *timerOptions;
+NSInteger selectedIndex;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,6 +48,21 @@
     
     self.missionToday = [MissionHistory missionForToday];
     NSLog(@"load mission: %@", self.missionToday);
+    
+    timerOptions = [NSArray arrayWithObjects:@"1 Hour", @"1.5 Hour", @"2 Hour", @"2.5 Hour", @"3 Hour", @"3.5 Hour", @"4 Hour", @"4.5 Hour", @"5 Hour", @"5.5 Hour", @"6 Hour", @"6.5 Hour", @"7 Hour", @"7.5 Hour", @"8 Hour", @"8.5 Hour", @"9 Hour", @"9.5 Hour", @"10 Hour", nil];
+    
+    UITapGestureRecognizer *gestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textSecondLeft addGestureRecognizer:gestureRecognizer1];
+    UITapGestureRecognizer *gestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textHourLeft addGestureRecognizer:gestureRecognizer2];
+    UITapGestureRecognizer *gestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textMinuteLeft addGestureRecognizer:gestureRecognizer3];
+    UITapGestureRecognizer *gestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textColon1 addGestureRecognizer:gestureRecognizer4];
+    UITapGestureRecognizer *gestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textColon2 addGestureRecognizer:gestureRecognizer5];
+    
+    [self countdownTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,56 +104,9 @@
     return 44;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TaskViewCell *cell = (TaskViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];
@@ -145,7 +118,6 @@
     [cell setStatus:task.status];
     [[self tableView] reloadData];
     [MissionHistory saveMissionHistory];
-
 }
 
 - (void) textViewDidEndEditing:(UITextView *)textView {
@@ -164,12 +136,6 @@
     
     return YES;
 }
-//
-//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-//    NSLog(@"333");
-//    return YES;
-//}
-
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,100,30)];
@@ -188,32 +154,6 @@
     return 70;
 }
 
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"TaskDetail"]) {
-//        EditTaskViewController *editController = [segue destinationViewController];
-//        editController.editTask = [self.missionToday.tasks objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-//    }
-//}
-//
-//- (IBAction)saveEdit:(UIStoryboardSegue *)segue {
-//    if ([[segue identifier] isEqualToString:@"SaveEdit"]) {
-//        EditTaskViewController *editController = [segue sourceViewController];
-//        if (editController.editTask) {
-//            [self.missionToday.tasks replaceObjectAtIndex:[[self.tableView indexPathForSelectedRow] row] withObject:editController.editTask];
-//            [[self tableView] reloadData];
-//        }
-//        [self dismissViewControllerAnimated:YES completion:NULL];
-//        [MissionHistory saveMissionHistory];
-//    }
-//
-//}
-//
-//- (IBAction)cancelEdit:(UIStoryboardSegue *)segue {
-//    if ([[segue identifier] isEqualToString:@"CancelEdit"]) {
-//        [self dismissViewControllerAnimated:YES completion:NULL];
-//    }
-//}
-
 - (IBAction)addMoreTask:(id)sender {
     ColorAlertView *message = [[ColorAlertView alloc] initWithTitle:@"To Be Productive"
                                                       message:@"Just pick THREE big things and NO MORE!"
@@ -223,6 +163,38 @@
     UIColor *alertColor = [UIColor colorWithRed:(10/255.f) green:(100/255.f) blue:(10/255.f) alpha:1.0f];
     [ColorAlertView setBackgroundColor:alertColor withStrokeColor:alertColor];
     [message show];
+}
+
+- (void)timerTextViewTapped:(UIGestureRecognizer *)gestureRecognizer {
+    [ActionSheetStringPicker showPickerWithTitle:@"Set Timer" rows:timerOptions initialSelection:selectedIndex target:self successAction:@selector(animalWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.textSecondLeft];
+
+}
+
+- (void)animalWasSelected:(NSNumber *)index element:(id)element {
+    selectedIndex = [index intValue];
+    NSDate *now = [NSDate date];
+    NSTimeInterval seconds = (selectedIndex + 2) * 30 * 60;
+    deadline = [now dateByAddingTimeInterval:seconds];
+}
+
+- (void)actionPickerCancelled:(id)sender {
+}
+
+
+- (void)updateCounter:(NSTimer *)theTimer {
+    int secondsLeft = [deadline timeIntervalSinceNow];
+    if (secondsLeft > 0 ) {
+        int hours = secondsLeft / 3600;
+        int minutes = (secondsLeft % 3600) / 60;
+        int seconds = (secondsLeft %3600) % 60;
+        self.textHourLeft.text = [NSString stringWithFormat:@"%02d", hours];
+        self.textMinuteLeft.text = [NSString stringWithFormat:@"%02d", minutes];
+        self.textSecondLeft.text = [NSString stringWithFormat:@"%02d", seconds];
+    }
+}
+
+- (void)countdownTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 @end
