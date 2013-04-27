@@ -11,6 +11,8 @@
 @implementation Constants
 
 static NSString *MissionHistoryPath = nil;
+static NSString *DeadlinePath = nil;
+
 
 + (NSString *)documentsPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -23,6 +25,14 @@ static NSString *MissionHistoryPath = nil;
         MissionHistoryPath = [[Constants documentsPath] stringByAppendingPathComponent:@"mission_history.plist"];
     }
     return MissionHistoryPath;
+}
+
+
++(NSString *)deadlinePath {
+    if (!DeadlinePath) {
+        DeadlinePath = [[Constants documentsPath] stringByAppendingPathComponent:@"deadline.plist"];
+    }
+    return DeadlinePath;
 }
 
 @end

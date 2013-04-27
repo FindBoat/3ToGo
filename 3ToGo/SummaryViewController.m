@@ -149,10 +149,10 @@
     NSDate *bestPerformDate = [WeekSummary getBestPerformDateThisWeek:missions];
     
     [self.scoreLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", weekScore, 100]];
-    [self.scoreLabel setTextColor:[Utility getColorFromCompletion:weekScore andTotal:100]];
+    [self.scoreLabel setTextColor:[Utility getColorFromNum:weekScore andTotal:100]];
     
     [self.achievementLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", numAccomplishedTasks, numTasks]];
-    [self.achievementLabel setTextColor:[Utility getColorFromCompletion:numAccomplishedTasks andTotal:numTasks]];
+    [self.achievementLabel setTextColor:[Utility getColorFromNum:numAccomplishedTasks andTotal:numTasks]];
 
     [self.bestPerformLabel setText:[Utility getWeekdayString:bestPerformDate andShortForm:YES]];
     [self.worstPerformLabel setText:[Utility getWeekdayString:worstPerformDate andShortForm:YES]];

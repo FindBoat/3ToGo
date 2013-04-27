@@ -46,11 +46,11 @@
     return secondsBetween / (24 * 60 * 60);
 }
 
-+ (UIColor *) getColorFromCompletion:(NSInteger)completion andTotal:(NSInteger)total {
-    if (completion == total) {
++ (UIColor *) getColorFromNum:(NSInteger)num andTotal:(NSInteger)total {
+    if (num == total) {
         return [UIColor colorWithRed:(0/255.f) green:(255/255.f) blue:(0/255.f) alpha:1.0f];
     } else {
-        int g = completion * 1.0 / total * 255;
+        int g = num * 1.0 / total * 255;
         return [UIColor colorWithRed:(100/255.f) green:(g/255.f) blue:(50/255.f) alpha:1.0f];
     }
 }

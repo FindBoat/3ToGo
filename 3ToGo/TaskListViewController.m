@@ -62,6 +62,8 @@ NSInteger selectedIndex;
     UITapGestureRecognizer *gestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
     [self.textColon2 addGestureRecognizer:gestureRecognizer5];
     
+    [self initDeadline];
+    
     [self countdownTimer];
 }
 
@@ -175,6 +177,7 @@ NSInteger selectedIndex;
     NSDate *now = [NSDate date];
     NSTimeInterval seconds = (selectedIndex + 2) * 30 * 60;
     deadline = [now dateByAddingTimeInterval:seconds];
+    [self saveDeadline];
 }
 
 - (void)actionPickerCancelled:(id)sender {
@@ -187,14 +190,41 @@ NSInteger selectedIndex;
         int hours = secondsLeft / 3600;
         int minutes = (secondsLeft % 3600) / 60;
         int seconds = (secondsLeft %3600) % 60;
+        
+        UIColor* color = [Utility getColorFromNum:secondsLeft andTotal:8 * 60 * 60];
+        
         self.textHourLeft.text = [NSString stringWithFormat:@"%02d", hours];
+        self.textHourLeft.textColor = color;
         self.textMinuteLeft.text = [NSString stringWithFormat:@"%02d", minutes];
+        self.textMinuteLeft.textColor = color;
         self.textSecondLeft.text = [NSString stringWithFormat:@"%02d", seconds];
+        self.textSecondLeft.textColor = color;
+        
+        self.textColon1.textColor = color;
+        self.textColon2.textColor = color;
     }
 }
 
 - (void)countdownTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+}
+
+- (BOOL)saveDeadline {
+    NSLog(@"Saving deadline...");
+    return [NSKeyedArchiver archiveRootObject:deadline toFile:[Constants deadlinePath]];
+}
+
+- (void)initDeadline {
+    if (deadline) {
+        return;
+    }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[Constants deadlinePath]]) {
+        deadline = [NSKeyedUnarchiver unarchiveObjectWithFile:[Constants deadlinePath]];
+    } else {
+        NSTimeInterval seconds = 8 * 60 * 60;
+        deadline = [[NSDate date] dateByAddingTimeInterval:seconds];
+    }
+    NSLog(@"Init deadline: %@", deadline);
 }
 
 @end

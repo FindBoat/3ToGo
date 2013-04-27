@@ -11,5 +11,6 @@
 @interface Constants : NSObject
 
 +(NSString *)missionHistoryPath;
++(NSString *)deadlinePath;
 
 @end
