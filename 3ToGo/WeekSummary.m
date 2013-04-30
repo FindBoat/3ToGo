@@ -8,11 +8,16 @@
 
 #import "WeekSummary.h"
 #import "Mission.h"
+#import "MissionHistory.h"
 #import "Task.h"
 
 @implementation WeekSummary
 
 static float Weight[] = {0.4, 0.3, 0.3};
+
++ (NSInteger)getDaysPlanned {
+    return [[MissionHistory missionsForThisWeek] count];
+}
 
 + (NSInteger)getWeekScore:(NSArray *)missions {
     

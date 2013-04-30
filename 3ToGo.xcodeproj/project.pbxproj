@@ -35,7 +35,6 @@
 		FD77052516D3542B00FA4459 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052416D3542B00FA4459 /* TaskListViewController.m */; };
 		FD77052816D3572100FA4459 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052716D3572100FA4459 /* Task.m */; };
 		FD77052B16D40B7C00FA4459 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052A16D40B7C00FA4459 /* Constants.m */; };
-		FD77053016D42EC700FA4459 /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77052F16D42EC700FA4459 /* EditTaskViewController.m */; };
 		FD77053916D4A1F300FA4459 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77053816D4A1F300FA4459 /* Utility.m */; };
 		FD77053F16D5621800FA4459 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77053E16D5621800FA4459 /* SummaryViewController.m */; };
 		FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = FD77054216D57FC700FA4459 /* WeekSummary.m */; };
@@ -84,8 +83,6 @@
 		FD77052716D3572100FA4459 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		FD77052916D40B7C00FA4459 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FD77052A16D40B7C00FA4459 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		FD77052E16D42EC700FA4459 /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
-		FD77052F16D42EC700FA4459 /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
 		FD77053716D4A1F300FA4459 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		FD77053816D4A1F300FA4459 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		FD77053D16D5621800FA4459 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
@@ -201,8 +198,6 @@
 			children = (
 				FD77052316D3542B00FA4459 /* TaskListViewController.h */,
 				FD77052416D3542B00FA4459 /* TaskListViewController.m */,
-				FD77052E16D42EC700FA4459 /* EditTaskViewController.h */,
-				FD77052F16D42EC700FA4459 /* EditTaskViewController.m */,
 				FD77053D16D5621800FA4459 /* SummaryViewController.h */,
 				FD77053E16D5621800FA4459 /* SummaryViewController.m */,
 				FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */,
@@ -354,7 +349,6 @@
 				FD77052516D3542B00FA4459 /* TaskListViewController.m in Sources */,
 				FD77052816D3572100FA4459 /* Task.m in Sources */,
 				FD77052B16D40B7C00FA4459 /* Constants.m in Sources */,
-				FD77053016D42EC700FA4459 /* EditTaskViewController.m in Sources */,
 				FD77053916D4A1F300FA4459 /* Utility.m in Sources */,
 				FD77053F16D5621800FA4459 /* SummaryViewController.m in Sources */,
 				FD77054316D57FC700FA4459 /* WeekSummary.m in Sources */,

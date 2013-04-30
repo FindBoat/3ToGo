@@ -57,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 3;
 }
 
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,8 +123,8 @@
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,15,300,30)];
-    title.text = @"This Week You Get";
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,300,30)];
+    title.text = @"Util Now This Week You Get";
     [title setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
     [title setTextColor:[UIColor colorWithRed:(38/255.f) green:(171/255.f) blue:(255/255.f) alpha:1.0f]];
     [title setBackgroundColor:[UIColor clearColor]];
@@ -136,7 +136,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 57;
+    return 70;
 }
 
 
@@ -145,8 +145,13 @@
     int weekScore = [WeekSummary getWeekScore:missions];
     int numAccomplishedTasks = [WeekSummary getNumAccomplishedTasks:missions];
     int numTasks = [WeekSummary getNumTasksThisWeek:missions];
-    NSDate *worstPerformDate = [WeekSummary getWorstPerformDateThisWeek:missions];
-    NSDate *bestPerformDate = [WeekSummary getBestPerformDateThisWeek:missions];
+    int daysPlanned = [WeekSummary getDaysPlanned];
+//    NSDate *worstPerformDate = [WeekSummary getWorstPerformDateThisWeek:missions];
+//    NSDate *bestPerformDate = [WeekSummary getBestPerformDateThisWeek:missions];
+    
+    [self.daysPlannedLabel setText:[[NSString alloc] initWithFormat:@"%d", daysPlanned]];
+    [self.daysPlannedLabel setTextColor:[Utility getColorFromNum:daysPlanned andTotal:7]];
+
     
     [self.scoreLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", weekScore, 100]];
     [self.scoreLabel setTextColor:[Utility getColorFromNum:weekScore andTotal:100]];
@@ -154,8 +159,8 @@
     [self.achievementLabel setText:[[NSString alloc] initWithFormat:@"%d/%d", numAccomplishedTasks, numTasks]];
     [self.achievementLabel setTextColor:[Utility getColorFromNum:numAccomplishedTasks andTotal:numTasks]];
 
-    [self.bestPerformLabel setText:[Utility getWeekdayString:bestPerformDate andShortForm:YES]];
-    [self.worstPerformLabel setText:[Utility getWeekdayString:worstPerformDate andShortForm:YES]];
+//    [self.bestPerformLabel setText:[Utility getWeekdayString:bestPerformDate andShortForm:YES]];
+//    [self.worstPerformLabel setText:[Utility getWeekdayString:worstPerformDate andShortForm:YES]];
 }
 
 @end

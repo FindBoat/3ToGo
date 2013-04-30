@@ -28,7 +28,7 @@ static int HourPerDay = 60 * 60 * 24;
     return [MissionHistoryList lastObject];
 }
 
-// TODO: Deal with missing missions.
+// TODO: Test this method.
 + (NSArray *)missionsForThisWeek {
     int weekDay = [[Utility getWeekday:[NSDate date]] weekday];
     // weedDay = 1 for Sunday.
@@ -39,9 +39,7 @@ static int HourPerDay = 60 * 60 * 24;
     for (int i = 0; i < need; i++) {
         Mission *mission = [MissionHistoryList objectAtIndex:historyLength - i - 1];
         if ([missions count] > 0) {
-            NSDate *date1 = ((Mission *)[missions objectAtIndex:0]).date;
-            NSDate *date2 = mission.date;
-            if ([Utility getDateDiff:date2 andDate:date1] > 1) {
+            if ([Utility getDateDiff:mission.date andDate:[NSDate date]] > num - 1) {
                 break;
             }
         }

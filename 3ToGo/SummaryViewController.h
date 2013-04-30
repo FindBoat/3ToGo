@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bestPerformLabel;
 @property (weak, nonatomic) IBOutlet UILabel *achievementLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *daysPlannedLabel;
 
 @end

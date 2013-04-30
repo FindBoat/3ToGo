@@ -224,6 +224,7 @@ NSInteger selectedIndex;
         NSTimeInterval seconds = 8 * 60 * 60;
         deadline = [[NSDate date] dateByAddingTimeInterval:seconds];
     }
+    
     NSLog(@"Init deadline: %@", deadline);
 }
 

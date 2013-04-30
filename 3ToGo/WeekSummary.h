@@ -15,5 +15,6 @@
 + (NSInteger)getNumTasksThisWeek:(NSArray *)missions;
 + (NSDate *)getBestPerformDateThisWeek:(NSArray *)missions;
 + (NSDate *)getWorstPerformDateThisWeek:(NSArray *)missions;
++ (NSInteger)getDaysPlanned;
 
 @end
