@@ -116,6 +116,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD74EFD617321D6800DBA90F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD069018171A04DE009725BD /* ColorAlertView.h */,
+				FD069019171A04DE009725BD /* ColorAlertView.m */,
+				FD06901D171B12C1009725BD /* TaskViewCell.h */,
+				FD06901E171B12C2009725BD /* TaskViewCell.m */,
+				FD829BFD1728D746001279CA /* ActionSheetPicker */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FD7704E816D34A1400FA4459 = {
 			isa = PBXGroup;
 			children = (
@@ -209,17 +221,13 @@
 		FD77053B16D4A82C00FA4459 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FD829BFD1728D746001279CA /* ActionSheetPicker */,
+				FD74EFD617321D6800DBA90F /* View */,
 				FD77052616D3572100FA4459 /* Task.h */,
 				FD77052716D3572100FA4459 /* Task.m */,
 				FD77054416D58E2D00FA4459 /* Mission.h */,
 				FD77054516D58E2D00FA4459 /* Mission.m */,
 				FD77054716D58FB100FA4459 /* MissionHistory.h */,
 				FD77054816D58FB100FA4459 /* MissionHistory.m */,
-				FD069018171A04DE009725BD /* ColorAlertView.h */,
-				FD069019171A04DE009725BD /* ColorAlertView.m */,
-				FD06901D171B12C1009725BD /* TaskViewCell.h */,
-				FD06901E171B12C2009725BD /* TaskViewCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

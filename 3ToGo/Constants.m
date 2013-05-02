@@ -8,17 +8,14 @@
 
 #import "Constants.h"
 
+@interface Constants()
++ (NSString *)documentsPath;
+@end
+
 @implementation Constants
 
 static NSString *MissionHistoryPath = nil;
 static NSString *DeadlinePath = nil;
-
-
-+ (NSString *)documentsPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [paths lastObject];
-}
-
 
 +(NSString *)missionHistoryPath {
     if (!MissionHistoryPath) {
@@ -27,12 +24,16 @@ static NSString *DeadlinePath = nil;
     return MissionHistoryPath;
 }
 
-
 +(NSString *)deadlinePath {
     if (!DeadlinePath) {
         DeadlinePath = [[Constants documentsPath] stringByAppendingPathComponent:@"deadline.plist"];
     }
     return DeadlinePath;
+}
+
++ (NSString *)documentsPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths lastObject];
 }
 
 @end

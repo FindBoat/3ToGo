@@ -11,23 +11,25 @@
 #import "MissionHistory.h"
 #import "Task.h"
 
+@interface WeekSummary()
+
+// Score [0, 100] for each mission.
++ (float)getPerform:(Mission *)mission;
+
+@end
+
 @implementation WeekSummary
 
 static float Weight[] = {0.4, 0.3, 0.3};
 
-+ (NSInteger)getDaysPlanned {
-    return [[MissionHistory missionsForThisWeek] count];
-}
-
+// Avg by day.
+// TODO: Get days planned into account.
 + (NSInteger)getWeekScore:(NSArray *)missions {
-    
     float score = 0;
     for (Mission *mission in missions) {
         score += [WeekSummary getPerform:mission];
-        NSLog(@"%f", score);
     }
     score /= [missions count];
-    NSLog(@"%d", [missions count]);
     return (int)score;
 }
 
@@ -47,30 +49,8 @@ static float Weight[] = {0.4, 0.3, 0.3};
     return [Mission numTasksPerMission] * [missions count];
 }
 
-+ (NSDate *)getBestPerformDateThisWeek:(NSArray *)missions {
-    NSDate *date = nil;
-    float perf = 0;
-    for (Mission *mission in missions) {
-        float perfCurrent = [WeekSummary getPerform:mission];
-        if (perfCurrent > perf) {
-            perf = perfCurrent;
-            date = mission.date;
-        }
-    }
-    return date;
-}
-
-+ (NSDate *)getWorstPerformDateThisWeek:(NSArray *)missions {
-    NSDate *date = nil;
-    float perf = 999;
-    for (Mission *mission in missions) {
-        float perfCurrent = [WeekSummary getPerform:mission];
-        if (perfCurrent < perf) {
-            perf = perfCurrent;
-            date = mission.date;
-        }
-    }
-    return date;
++ (NSInteger)getDaysPlanned {
+    return [[MissionHistory missionsForThisWeek] count];
 }
 
 + (float)getPerform:(Mission *)mission {

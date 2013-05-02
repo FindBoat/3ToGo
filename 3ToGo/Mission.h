@@ -13,10 +13,11 @@
 @property (nonatomic) NSMutableArray *tasks;
 @property (nonatomic) NSDate *date;
 
++ (NSInteger)numTasksPerMission;
++ (id)createTestMission:(NSDate *)date;
+
 - (id)initWithTasks:(NSMutableArray *)tasks;
 - (id)initWithTasks:(NSMutableArray *)tasks andDate:(NSDate *)date;
-+ (NSInteger)numTasksPerMission;
 
-+ (id)createTestMission:(NSDate *)date;
 
 @end

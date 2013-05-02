@@ -13,8 +13,6 @@
 + (NSInteger)getWeekScore:(NSArray *)missions;
 + (NSInteger)getNumAccomplishedTasks:(NSArray *)missions;
 + (NSInteger)getNumTasksThisWeek:(NSArray *)missions;
-+ (NSDate *)getBestPerformDateThisWeek:(NSArray *)missions;
-+ (NSDate *)getWorstPerformDateThisWeek:(NSArray *)missions;
 + (NSInteger)getDaysPlanned;
 
 @end

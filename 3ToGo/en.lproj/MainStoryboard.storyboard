@@ -431,47 +431,6 @@
         <image name="item-task.png" width="24" height="18"/>
         <image name="not-done.png" width="14" height="12"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SummaryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="achievementLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bestPerformLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="daysPlannedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="worstPerformLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TaskListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMoreTask:"/>
-                <relationship kind="action" name="cancelEdit:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="saveEdit:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="textColon1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textColon2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textHourLeft" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textMinuteLeft" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="textSecondLeft" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="TaskViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageStatus" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="textTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="WeeklyTaskListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WeeklyTaskListViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
