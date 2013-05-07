@@ -18,6 +18,8 @@
 
 @interface TaskListViewController ()
 
+- (void)initTimerLabels;
+
 @end
 
 @implementation TaskListViewController
@@ -48,23 +50,13 @@ NSInteger selectedIndex;
     self.missionToday = [MissionHistory missionForToday];
     NSLog(@"load mission: %@", self.missionToday);
     
-    timerOptions = [NSArray arrayWithObjects:@"1 Hour", @"1.5 Hour", @"2 Hour", @"2.5 Hour", @"3 Hour", @"3.5 Hour", @"4 Hour", @"4.5 Hour", @"5 Hour", @"5.5 Hour", @"6 Hour", @"6.5 Hour", @"7 Hour", @"7.5 Hour", @"8 Hour", @"8.5 Hour", @"9 Hour", @"9.5 Hour", @"10 Hour", nil];
-    
-    UITapGestureRecognizer *gestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
-    [self.textSecondLeft addGestureRecognizer:gestureRecognizer1];
-    UITapGestureRecognizer *gestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
-    [self.textHourLeft addGestureRecognizer:gestureRecognizer2];
-    UITapGestureRecognizer *gestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
-    [self.textMinuteLeft addGestureRecognizer:gestureRecognizer3];
-    UITapGestureRecognizer *gestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
-    [self.textColon1 addGestureRecognizer:gestureRecognizer4];
-    UITapGestureRecognizer *gestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
-    [self.textColon2 addGestureRecognizer:gestureRecognizer5];
+    [self initTimerLabels];
     
     [self initDeadline];
     
-    [self countdownTimer];
+    [self initTimer];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -101,7 +93,6 @@ NSInteger selectedIndex;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
-    
     return 44;
 }
 
@@ -128,18 +119,17 @@ NSInteger selectedIndex;
     [MissionHistory saveMissionHistory];
 }
 
+// Finish editing when typing ENTER.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
     }
-    
     return YES;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,100,30)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake (18,25,300,30)];
     title.text = @"Today Task";
     [title setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
     [title setTextColor:[UIColor colorWithRed:(38/255.f) green:(171/255.f) blue:(255/255.f) alpha:1.0f]];
@@ -158,20 +148,38 @@ NSInteger selectedIndex;
 - (IBAction)addMoreTask:(id)sender {
     ColorAlertView *message = [[ColorAlertView alloc] initWithTitle:@"To Be Productive"
                                                       message:@"Just pick THREE big things and NO MORE!"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
+                                                      delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
     UIColor *alertColor = [UIColor colorWithRed:(10/255.f) green:(100/255.f) blue:(10/255.f) alpha:1.0f];
     [ColorAlertView setBackgroundColor:alertColor withStrokeColor:alertColor];
     [message show];
 }
 
-- (void)timerTextViewTapped:(UIGestureRecognizer *)gestureRecognizer {
-    [ActionSheetStringPicker showPickerWithTitle:@"Set Timer" rows:timerOptions initialSelection:selectedIndex target:self successAction:@selector(animalWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.textSecondLeft];
 
+// Timer stuff below.
+
+- (void)initTimerLabels {
+    timerOptions = [NSArray arrayWithObjects:@"1 Hour", @"1.5 Hour", @"2 Hour", @"2.5 Hour", @"3 Hour", @"3.5 Hour", @"4 Hour", @"4.5 Hour", @"5 Hour", @"5.5 Hour", @"6 Hour", @"6.5 Hour", @"7 Hour", @"7.5 Hour", @"8 Hour", @"8.5 Hour", @"9 Hour", @"9.5 Hour", @"10 Hour", nil];
+    
+    UITapGestureRecognizer *gestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textSecondLeft addGestureRecognizer:gestureRecognizer1];
+    UITapGestureRecognizer *gestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textHourLeft addGestureRecognizer:gestureRecognizer2];
+    UITapGestureRecognizer *gestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textMinuteLeft addGestureRecognizer:gestureRecognizer3];
+    UITapGestureRecognizer *gestureRecognizer4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textColon1 addGestureRecognizer:gestureRecognizer4];
+    UITapGestureRecognizer *gestureRecognizer5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerTextViewTapped:)];
+    [self.textColon2 addGestureRecognizer:gestureRecognizer5];
 }
 
-- (void)animalWasSelected:(NSNumber *)index element:(id)element {
+- (void)timerTextViewTapped:(UIGestureRecognizer *)gestureRecognizer {
+    [ActionSheetStringPicker showPickerWithTitle:@"Set Timer" rows:timerOptions initialSelection:selectedIndex target:self successAction:@selector(timerWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.textSecondLeft];
+    
+}
+
+- (void)timerWasSelected:(NSNumber *)index element:(id)element {
     selectedIndex = [index intValue];
     NSDate *now = [NSDate date];
     NSTimeInterval seconds = (selectedIndex + 2) * 30 * 60;
@@ -180,32 +188,6 @@ NSInteger selectedIndex;
 }
 
 - (void)actionPickerCancelled:(id)sender {
-}
-
-
-- (void)updateCounter:(NSTimer *)theTimer {
-    int secondsLeft = [deadline timeIntervalSinceNow];
-    if (secondsLeft > 0 ) {
-        int hours = secondsLeft / 3600;
-        int minutes = (secondsLeft % 3600) / 60;
-        int seconds = (secondsLeft %3600) % 60;
-        
-        UIColor* color = [Utility getColorFromNum:secondsLeft andTotal:8 * 60 * 60];
-        
-        self.textHourLeft.text = [NSString stringWithFormat:@"%02d", hours];
-        self.textHourLeft.textColor = color;
-        self.textMinuteLeft.text = [NSString stringWithFormat:@"%02d", minutes];
-        self.textMinuteLeft.textColor = color;
-        self.textSecondLeft.text = [NSString stringWithFormat:@"%02d", seconds];
-        self.textSecondLeft.textColor = color;
-        
-        self.textColon1.textColor = color;
-        self.textColon2.textColor = color;
-    }
-}
-
-- (void)countdownTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 - (BOOL)saveDeadline {
@@ -223,8 +205,32 @@ NSInteger selectedIndex;
         NSTimeInterval seconds = 8 * 60 * 60;
         deadline = [[NSDate date] dateByAddingTimeInterval:seconds];
     }
-    
     NSLog(@"Init deadline: %@", deadline);
+}
+
+- (void)initTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)updateTimer:(NSTimer *)theTimer {
+    int secondsLeft = [deadline timeIntervalSinceNow];
+    if (secondsLeft > 0 ) {
+        int hours = secondsLeft / 3600;
+        int minutes = (secondsLeft % 3600) / 60;
+        int seconds = (secondsLeft % 3600) % 60;
+        
+        UIColor* color = [Utility getColorFromNum:secondsLeft andTotal:8 * 60 * 60];
+        
+        self.textHourLeft.text = [NSString stringWithFormat:@"%02d", hours];
+        self.textHourLeft.textColor = color;
+        self.textMinuteLeft.text = [NSString stringWithFormat:@"%02d", minutes];
+        self.textMinuteLeft.textColor = color;
+        self.textSecondLeft.text = [NSString stringWithFormat:@"%02d", seconds];
+        self.textSecondLeft.textColor = color;
+        
+        self.textColon1.textColor = color;
+        self.textColon2.textColor = color;
+    }
 }
 
 @end

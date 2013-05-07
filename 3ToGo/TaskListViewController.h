@@ -12,6 +12,7 @@
 @interface TaskListViewController : UITableViewController <UITextViewDelegate>
 
 @property (nonatomic) Mission *missionToday;
+
 @property (weak) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UITextView *textHourLeft;
 @property (weak, nonatomic) IBOutlet UITextView *textMinuteLeft;
@@ -21,8 +22,6 @@
 
 @property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
 
-- (IBAction)saveEdit:(UIStoryboardSegue *)segue;
-- (IBAction)cancelEdit:(UIStoryboardSegue *)segue;
 - (IBAction)addMoreTask:(id)sender;
 
 @end

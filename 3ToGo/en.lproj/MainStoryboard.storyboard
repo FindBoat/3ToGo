@@ -265,6 +265,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Uxa-pG-zcL" detailTextLabel="4M6-3h-5L3" imageView="SuW-O7-7TL" style="IBUITableViewCellStyleValue1" id="3UD-Wf-2nh">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
@@ -290,6 +291,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0ka-zT-ZoB" detailTextLabel="C9S-SQ-Fca" imageView="G6k-1z-baB" style="IBUITableViewCellStyleValue1" id="wEP-mI-jfY">
                                         <rect key="frame" x="0.0" y="99" width="320" height="45"/>
@@ -315,6 +317,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
