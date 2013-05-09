@@ -9,6 +9,7 @@
 #import "WeekSummary.h"
 #import "Mission.h"
 #import "MissionHistory.h"
+#import "Utility.h"
 #import "Task.h"
 
 @interface WeekSummary()
@@ -30,6 +31,11 @@ static float Weight[] = {0.4, 0.3, 0.3};
         score += [WeekSummary getPerform:mission];
     }
     score /= [missions count];
+    
+    int weekDay = [[Utility getWeekday:[NSDate date]] weekday];
+    weekDay = (weekDay == 1) ? 7 : weekDay - 1;
+    weekDay = (weekDay > 5) ? 5 : weekDay;
+    score *= [self getDaysPlanned] * 1.0 / weekDay;
     return (int)score;
 }
 

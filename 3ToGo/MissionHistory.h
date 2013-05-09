@@ -12,6 +12,7 @@
 
 + (Mission *)missionForToday;
 + (NSArray *)missionsForThisWeek;
++ (Mission *)defaultMission;
 + (void)initMissionHistory;
 + (BOOL)saveMissionHistory;
 

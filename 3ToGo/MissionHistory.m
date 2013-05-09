@@ -26,6 +26,7 @@
 static NSMutableArray *MissionHistoryList = nil;
 static NSInteger MaxHistoryLength = 21;
 static int HourPerDay = 60 * 60 * 24;
+static Mission *DefaultMission;
 
 + (Mission *)missionForToday {
     NSDate *today = [Utility dateWithoutTime:[NSDate date]];
@@ -71,6 +72,13 @@ static int HourPerDay = 60 * 60 * 24;
     NSLog(@"Init mission history: %@", MissionHistoryList);
     
     [MissionHistory clearStaleMissionHistory];
+}
+
++ (Mission *)defaultMission {
+    if (DefaultMission == nil) {
+        DefaultMission = [self generateDefaultMission];
+    }
+    return DefaultMission;
 }
 
 + (BOOL)saveMissionHistory {

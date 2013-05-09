@@ -112,6 +112,14 @@ NSInteger selectedIndex;
     [MissionHistory saveMissionHistory];
 }
 
+- (void) textViewDidBeginEditing:(UITextView *)textView {
+    // Clear text when the textView is not set yet.
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TaskViewCell*)[[textView superview] superview]];
+    if ([textView.text isEqualToString:((Task *)[[MissionHistory defaultMission].tasks objectAtIndex:[indexPath row]]).title]) {
+        [textView setText:@""];
+    }
+}
+
 - (void) textViewDidEndEditing:(UITextView *)textView {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TaskViewCell*)[[textView superview] superview]];
     Task *task = [self.missionToday.tasks objectAtIndex:[indexPath row]];

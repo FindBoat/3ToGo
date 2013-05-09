@@ -274,7 +274,7 @@
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Days Using This App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxa-pG-zcL">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Days Planned This Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxa-pG-zcL">
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -434,6 +434,42 @@
         <image name="item-task.png" width="24" height="18"/>
         <image name="not-done.png" width="14" height="12"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SummaryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="achievementLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bestPerformLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="daysPlannedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="worstPerformLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TaskListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMoreTask:"/>
+                <relationship kind="outlet" name="textColon1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textColon2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textHourLeft" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textMinuteLeft" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textSecondLeft" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="TaskViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageStatus" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textTitle" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="WeeklyTaskListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WeeklyTaskListViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
