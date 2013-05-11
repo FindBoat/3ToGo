@@ -43,6 +43,7 @@
 		FD829BF61728D729001279CA /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD829BEA1728D729001279CA /* AbstractActionSheetPicker.m */; };
 		FD829BFA1728D729001279CA /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD829BF31728D729001279CA /* ActionSheetStringPicker.m */; };
 		FDE47B9216D73B7200CA9E90 /* WeeklyTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */; };
+		FDE8DD0E173EC5A700321112 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE8DD0D173EC5A700321112 /* appicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		FD829BFC1728D741001279CA /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSheetPicker.h; path = ../ActionSheetPicker.h; sourceTree = "<group>"; };
 		FDE47B9016D73B7200CA9E90 /* WeeklyTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyTaskListViewController.h; sourceTree = "<group>"; };
 		FDE47B9116D73B7200CA9E90 /* WeeklyTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyTaskListViewController.m; sourceTree = "<group>"; };
+		FDE8DD0D173EC5A700321112 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		FD77052216D34A3E00FA4459 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDE8DD0D173EC5A700321112 /* appicon.png */,
 				FD069028171B19E4009725BD /* done.png */,
 				FD069026171B19B5009725BD /* not-done.png */,
 				FD0690161719E02B009725BD /* btn-green.png */,
@@ -342,6 +345,7 @@
 				FD0690171719E02B009725BD /* btn-green.png in Resources */,
 				FD069027171B19B5009725BD /* not-done.png in Resources */,
 				FD069029171B19E4009725BD /* done.png in Resources */,
+				FDE8DD0E173EC5A700321112 /* appicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
